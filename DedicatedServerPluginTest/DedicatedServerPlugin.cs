@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Sandbox.Game.GameSystems.BankingAndCurrency;
+using Sandbox.Game.World;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using VRage.ObjectBuilders;
 using VRage.Plugins;
 
 namespace DemoEventHandler {
@@ -23,6 +26,8 @@ namespace DemoEventHandler {
             GetConfiguration(VRage.FileSystem.MyFileSystem.UserDataPath);
 
             Console.WriteLine("Test Tebex Event Handler subscription");
+            Console.WriteLine("Demo: !giveitem {id} {parttype}");
+            Console.WriteLine("Demo: !givemoney {id} {amount}");
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
 
         }
@@ -31,6 +36,28 @@ namespace DemoEventHandler {
         {
             Console.WriteLine("Tebex Handler: Purchase Recieved");
             Console.WriteLine(details);
+            string[] parts = details.Split(' ');
+
+            if (parts[0] == "!giveitem")
+            {
+                long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
+                MyIdentity targetPlayer = MySession.Static.Players.TryGetIdentity(identityId);
+
+                MyObjectBuilder_Base obj = MyObjectBuilderSerializer.CreateNewObject(VRage.Game.MyDefinitionId.Parse(parts[2]).TypeId);
+
+                if (targetPlayer.Character.GetInventoryBase().AddItems(10, obj))
+                {
+                    Console.WriteLine("Gave 10 " + parts[2] + " to " + parts[1]);
+                } else
+                {
+                    Console.WriteLine("Couldn't give 10 " + parts[2] + " to " + parts[1]);
+                }
+            } else if (parts[0] == "!givemoney")
+            {
+                long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
+                MyBankingSystem.ChangeBalance(identityId, long.Parse(parts[2]));
+                Console.WriteLine("Gave " + parts[2] + " money to " + parts[1]);
+            }
         }
 
         //Called every gameupdate or 'Tick'
