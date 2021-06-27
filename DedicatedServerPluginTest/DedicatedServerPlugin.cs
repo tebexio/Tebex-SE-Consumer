@@ -25,7 +25,7 @@ namespace DemoEventHandler {
             //behaviour that is exhibited on the description of the GetConfiguration definition below...
             GetConfiguration(VRage.FileSystem.MyFileSystem.UserDataPath);
 
-            Console.WriteLine("Test Tebex Event Handler subscription");
+            Console.WriteLine("Demo Tebex Event Handler");
             Console.WriteLine("Demo: !giveitem {id} {parttype}");
             Console.WriteLine("Demo: !givemoney {id} {amount}");
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
@@ -41,17 +41,13 @@ namespace DemoEventHandler {
             if (parts[0] == "!giveitem")
             {
                 long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
-                MyIdentity targetPlayer = MySession.Static.Players.TryGetIdentity(identityId);
 
-                MyObjectBuilder_Base obj = MyObjectBuilderSerializer.CreateNewObject(VRage.Game.MyDefinitionId.Parse(parts[2]).TypeId);
+                string[] itemparts = parts[2].Split('/');
 
-                if (targetPlayer.Character.GetInventoryBase().AddItems(10, obj))
-                {
-                    Console.WriteLine("Gave 10 " + parts[2] + " to " + parts[1]);
-                } else
-                {
-                    Console.WriteLine("Couldn't give 10 " + parts[2] + " to " + parts[1]);
-                }
+                VRage.Game.MyDefinitionId.TryParse(itemparts[0], itemparts[1], out VRage.Game.MyDefinitionId defID);
+
+                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, 10);
+                Console.WriteLine("Gave 10 " + parts[2] + " to " + parts[1]);                
             } else if (parts[0] == "!givemoney")
             {
                 long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
