@@ -22,7 +22,7 @@ namespace DemoEventHandler {
             //behaviour that is exhibited on the description of the GetConfiguration definition below...
             GetConfiguration(VRage.FileSystem.MyFileSystem.UserDataPath);
 
-            Console.WriteLine("Test Tebex Event Handler");
+            Console.WriteLine("Test Tebex Event Handler subscription");
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
 
         }
