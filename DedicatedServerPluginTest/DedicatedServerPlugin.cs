@@ -10,6 +10,11 @@ using System.Xml.Serialization;
 using VRage.ObjectBuilders;
 using VRage.Plugins;
 
+/**
+ * Tebex => Space Engineers Vanilla Plugin
+ * Author: Liam Wiltshire
+ * Contributions: Bishbash777#0465 - GH: bishbash777 - initial outline template and patching controller
+ */
 namespace DemoEventHandler {
 
     //Notation by Bishbash777#0465
