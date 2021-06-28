@@ -26,7 +26,7 @@ namespace DemoEventHandler {
             GetConfiguration(VRage.FileSystem.MyFileSystem.UserDataPath);
 
             Console.WriteLine("Demo Tebex Event Handler");
-            Console.WriteLine("Demo: !giveitem {id} {parttype}");
+            Console.WriteLine("Demo: !giveitem {id} {parttype} {amount}");
             Console.WriteLine("Demo: !givemoney {id} {amount}");
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
 
@@ -46,8 +46,8 @@ namespace DemoEventHandler {
 
                 VRage.Game.MyDefinitionId.TryParse(itemparts[0], itemparts[1], out VRage.Game.MyDefinitionId defID);
 
-                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, 10);
-                Console.WriteLine("Gave 10 " + parts[2] + " to " + parts[1]);                
+                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, int.Parse(parts[3]);
+                Console.WriteLine("Gave " + parts[3] + " " + parts[2] + " to " + parts[1]);                
             } else if (parts[0] == "!givemoney")
             {
                 long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
