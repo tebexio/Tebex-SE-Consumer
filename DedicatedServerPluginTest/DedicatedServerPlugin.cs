@@ -46,7 +46,7 @@ namespace DemoEventHandler {
 
                 VRage.Game.MyDefinitionId.TryParse(itemparts[0], itemparts[1], out VRage.Game.MyDefinitionId defID);
 
-                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, int.Parse(parts[3]);
+                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, int.Parse(parts[3]));
                 Console.WriteLine("Gave " + parts[3] + " " + parts[2] + " to " + parts[1]);                
             } else if (parts[0] == "!givemoney")
             {
