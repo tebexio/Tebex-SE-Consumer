@@ -1,4 +1,6 @@
-﻿using Sandbox.Game.GameSystems.BankingAndCurrency;
+﻿using Sandbox;
+using Sandbox.Engine.Multiplayer;
+using Sandbox.Game.GameSystems.BankingAndCurrency;
 using Sandbox.Game.World;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,8 @@ namespace DemoEventHandler {
             Console.WriteLine("Demo Tebex Event Handler");
             Console.WriteLine("Demo: !giveitem {id} {parttype} {amount}");
             Console.WriteLine("Demo: !givemoney {id} {amount}");
+            Console.WriteLine("Demo: !reserveslot {id}");
+            Console.WriteLine("Demo: !say {message}");
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
 
         }
@@ -38,21 +42,29 @@ namespace DemoEventHandler {
             Console.WriteLine(details);
             string[] parts = details.Split(' ');
 
-            if (parts[0] == "!giveitem")
+            switch (parts[0])
             {
-                long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
+                case "!giveitem":
+                    long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
 
-                string[] itemparts = parts[2].Split('/');
+                    string[] itemparts = parts[2].Split('/');
 
-                VRage.Game.MyDefinitionId.TryParse(itemparts[0], itemparts[1], out VRage.Game.MyDefinitionId defID);
+                    VRage.Game.MyDefinitionId.TryParse(itemparts[0], itemparts[1], out VRage.Game.MyDefinitionId defID);
 
-                Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, int.Parse(parts[3]));
-                Console.WriteLine("Gave " + parts[3] + " " + parts[2] + " to " + parts[1]);                
-            } else if (parts[0] == "!givemoney")
-            {
-                long identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
-                MyBankingSystem.ChangeBalance(identityId, long.Parse(parts[2]));
-                Console.WriteLine("Gave " + parts[2] + " money to " + parts[1]);
+                    Sandbox.Game.MyVisualScriptLogicProvider.AddToPlayersInventory(identityId, defID, int.Parse(parts[3]));
+                    Console.WriteLine("Gave " + parts[3] + " " + parts[2] + " to " + parts[1]);
+                    break;
+                case "!givemoney":
+                    identityId = MySession.Static.Players.TryGetIdentityId(ulong.Parse(parts[1]));
+                    MyBankingSystem.ChangeBalance(identityId, long.Parse(parts[2]));
+                    Console.WriteLine("Gave " + parts[2] + " money to " + parts[1]);
+                    break;
+                case "!reserveslot":
+                    MySandboxGame.ConfigDedicated.Reserved.Add(ulong.Parse(parts[1]));
+                    break;
+                case "!say":
+                    MyMultiplayer.Static.SendChatMessage(details.Replace(parts[0] + " ", ""), Sandbox.Game.Gui.ChatChannel.Global, 0, "TebexSE");
+                    break;
             }
         }
 

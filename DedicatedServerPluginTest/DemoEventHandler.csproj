@@ -56,8 +56,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TebexSE">
-      <HintPath>..\..\Tebex-SE\DedicatedServerPluginTest\bin\x64\Debug\TebexSE.dll</HintPath>
+    <Reference Include="TebexSE, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Tebex-SE\TebexSE\bin\x64\Debug\TebexSE.dll</HintPath>
     </Reference>
     <Reference Include="VRage">
       <HintPath>..\..\servers\se\DedicatedServer64\VRage.dll</HintPath>
