@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using VRage.Plugins;
 
-namespace DemoEventHandler
+namespace TebexSECompanion
 {
     public class PluginConfiguration : IPluginConfiguration
     {
@@ -17,7 +17,7 @@ namespace DemoEventHandler
         {
             XmlSerializer serializer = new XmlSerializer(typeof(PluginConfiguration));
             
-            string configFile = Path.Combine(userDataPath, "DemoEventHandler.cfg");
+            string configFile = Path.Combine(userDataPath, "TebexSECompanion.cfg");
             using(StreamWriter stream = new StreamWriter(configFile, false, Encoding.UTF8))
             {
                 serializer.Serialize(stream, this);

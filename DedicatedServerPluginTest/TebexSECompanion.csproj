@@ -7,8 +7,8 @@
     <ProjectGuid>{CD0EC966-0B1D-4E59-AA73-ECA710896BFC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DedicatedServerPluginTest</RootNamespace>
-    <AssemblyName>DemoEventHandler</AssemblyName>
+    <RootNamespace>TebexSECompanion</RootNamespace>
+    <AssemblyName>TebexSECompanion</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -101,7 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DedicatedServerPlugin.cs" />
+    <Compile Include="TebexSECompanion.cs" />
     <Compile Include="PluginConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

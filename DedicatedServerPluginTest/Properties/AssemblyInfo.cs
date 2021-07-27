@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DemoEventHandler")]
-[assembly: AssemblyDescription("DemoEventHandler")]
+[assembly: AssemblyTitle("TebexSECompanion")]
+[assembly: AssemblyDescription("TebexSECompanion")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Keen Software House")]
-[assembly: AssemblyProduct("DemoEventHandler")]
+[assembly: AssemblyProduct("TebexSECompanion")]
 [assembly: AssemblyCopyright("Copyright © 2018 Keen Software House")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
