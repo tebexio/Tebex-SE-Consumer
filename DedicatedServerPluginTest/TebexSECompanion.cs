@@ -39,7 +39,7 @@ namespace TebexSECompanion {
             log("info", "Demo: !givemoney {id} [amount]");
             log("info", "Demo: !reserveslot {id}");
             log("info", "Demo: !unreserveslot {id}");
-            log("info", "Demo: !reserveslot {id} [rank]");
+            log("info", "Demo: !rank {id} [rank]");
             log("info", "Demo: !say [message]");
             
             TebexSE.TebexSE.tebexPurchaseEvent.TebexPurchaseReceived += TebexPurchaseEvent_TebexPurchaseReceived;
