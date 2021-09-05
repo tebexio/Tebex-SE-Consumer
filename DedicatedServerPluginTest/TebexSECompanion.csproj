@@ -32,21 +32,18 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\Tebex-SE\TebexSE\bin\x64\Release\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Tebex-SE\TebexSE\bin\x64\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Sandbox.Common">
-      <HintPath>..\..\servers\se\DedicatedServer64\Sandbox.Common.dll</HintPath>
+      <HintPath>..\..\..\servers\se\DedicatedServer64\Sandbox.Common.dll</HintPath>
     </Reference>
     <Reference Include="Sandbox.Game">
-      <HintPath>..\..\servers\se\DedicatedServer64\Sandbox.Game.dll</HintPath>
-    </Reference>
-    <Reference Include="Sandbox.Game.XmlSerializers">
-      <HintPath>..\..\servers\se\DedicatedServer64\Sandbox.Game.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="Sandbox.Graphics">
-      <HintPath>..\..\servers\se\DedicatedServer64\Sandbox.Graphics.dll</HintPath>
-    </Reference>
-    <Reference Include="Sandbox.RenderDirect">
-      <HintPath>..\..\servers\se\DedicatedServer64\Sandbox.RenderDirect.dll</HintPath>
+      <HintPath>..\..\..\servers\se\DedicatedServer64\Sandbox.Game.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -56,48 +53,17 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TebexSE, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Tebex-SE\TebexSE\bin\x64\Debug\TebexSE.dll</HintPath>
+    <Reference Include="TebexSE">
+      <HintPath>..\..\Tebex-SE\TebexSE\bin\x64\Release\TebexSE.dll</HintPath>
     </Reference>
     <Reference Include="VRage">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Ansel">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Ansel.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Audio">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Audio.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Dedicated">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Dedicated.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.EOS">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.EOS.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.EOS.XmlSerializers">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.EOS.XmlSerializers.dll</HintPath>
+      <HintPath>..\..\..\servers\se\DedicatedServer64\VRage.dll</HintPath>
     </Reference>
     <Reference Include="VRage.Game">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Game.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Game.XmlSerializers">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Game.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Input">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Input.dll</HintPath>
+      <HintPath>..\..\..\servers\se\DedicatedServer64\VRage.Game.dll</HintPath>
     </Reference>
     <Reference Include="VRage.Library">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Library.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Math">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Math.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Math.XmlSerializers">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Math.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="VRage.Mod.Io">
-      <HintPath>..\..\servers\se\DedicatedServer64\VRage.Mod.Io.dll</HintPath>
+      <HintPath>..\..\..\servers\se\DedicatedServer64\VRage.Library.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
